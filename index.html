@@ -1256,7 +1256,12 @@ if(typeof window!=='undefined'&&document.querySelectorAll){const links=[...docum
  $('workspaceFarmServer').addEventListener('change',()=>{$('overviewServer').value=$('workspaceFarmServer').value;$('overviewServer').dispatchEvent(new Event('change',{bubbles:true}));});
  document.addEventListener('change',synchronize);
  // Let the existing model select and render the server before opening its screen.
- document.addEventListener('click',e=>{if(mode==='new'&&e.target.closest('[data-server]')){location.hash='serverOverview';showScreen('serverOverview',true);}});
+ document.addEventListener('click',e=>{
+  if(mode!=='new')return;
+  const link=e.target.closest('a[href^="#"]'),target=link?.getAttribute('href').slice(1);
+  if(target&&titles[target]){e.preventDefault();if(location.hash!=='#'+target)history.pushState(null,'','#'+target);showScreen(target,true);}
+  if(e.target.closest('[data-server]')){history.pushState(null,'','#serverOverview');showScreen('serverOverview',true);}
+ });
  window.addEventListener('hashchange',()=>showScreen(location.hash.slice(1),true));
  new MutationObserver(()=>{synchronize();if(mode==='new')refreshCharts();}).observe($('serverTiles'),{childList:true});
  for(const id of ['tops','riskTops'])new MutationObserver(synchronize).observe($(id),{childList:true});
@@ -1264,5 +1269,6 @@ if(typeof window!=='undefined'&&document.querySelectorAll){const links=[...docum
  let preferred=q.get('layout');try{preferred=preferred||localStorage.getItem('hryu-layout');}catch(_){}
  bar.querySelector('[data-layout="classic"]').setAttribute('aria-pressed','true');
  if(preferred==='new')setMode('new');else synchronize();
+ window.addEventListener('load',()=>{if(mode==='new')requestAnimationFrame(()=>requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'})));},{once:true});
 })();
 </script></body></html>
