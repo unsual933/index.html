@@ -186,5 +186,10 @@
 .design-B .radar-score-tip dl{margin:0}.design-B .radar-score-tip dl>div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--surface-border);font-size:12px}
 .design-B .radar-score-tip dt small{display:block;margin-top:2px}.design-B .radar-score-tip dd{margin:0;white-space:nowrap;font-variant-numeric:tabular-nums}
 .design-B .radar-score-tip footer{display:block;padding:10px 0 0;margin:0;border:0;font-size:10px;line-height:1.6;color:var(--surface-muted)}
+.design-B .info-tip-trigger{display:inline-flex;align-items:center;justify-content:center;flex:none;vertical-align:middle;width:24px;height:24px;padding:3px;border:0;background:transparent;border-radius:50%;box-shadow:none;color:var(--surface-muted);cursor:pointer;transition:color .18s;outline-offset:2px}
+.design-B .info-tip-trigger:hover,.design-B .info-tip-trigger:focus-visible{color:var(--copper);background:transparent}
+.design-B .info-tip-panel{position:fixed;z-index:210;box-sizing:border-box;width:min(320px,calc(100vw - 24px));padding:17px 19px;border:1px solid var(--surface-border);border-radius:8px;background:var(--surface);box-shadow:0 12px 38px #241b141c;color:var(--surface-ink);text-align:left;font-size:12px;font-weight:400;line-height:1.65;letter-spacing:normal}
+.design-B .info-tip-panel>strong{display:block;font-size:13px;font-weight:600;line-height:1.4;margin-bottom:8px}
+.design-B .info-tip-panel>div{color:var(--surface-muted)}
 
 .prototype-bar{display:none!important}
