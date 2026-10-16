@@ -315,5 +315,8 @@
  .design-B .nav-bottom>.ui-button svg{width:18px;height:18px}
 }
 @media(min-width:1800px){.design-B .nav-bottom .snapshot{font-size:16px}.design-B .nav-bottom .snapshot small{font-size:14px}}
+.design-B .nav-bottom .snapshot-label{display:flex;align-items:center;gap:7px;white-space:nowrap;font-weight:500}
+.design-B .nav-bottom .snapshot-label .live-dot{margin:0;flex:none}
+.design-B .nav-bottom .snapshot small{line-height:1.4;margin-top:5px}
 
 .prototype-bar{display:none!important}
