@@ -173,5 +173,18 @@
 .design-B .forecast-link small{grid-column:1;grid-row:2;margin-top:0;pointer-events:none}
 .design-B .forecast-link:hover strong,.design-B .forecast-link:focus-visible strong,.design-B .forecast-link:hover>svg,.design-B .forecast-link:focus-visible>svg{color:var(--copper);text-shadow:0 0 14px color-mix(in srgb,var(--copper) 22%,transparent)}
 @media(max-width:650px){.design-B .server-row .forecast-link{grid-template-columns:minmax(0,1fr) 18px;column-gap:5px}.design-B .forecast-link>svg{width:15px;height:15px}}
+.design-B .server-name a{transition:color .18s,text-shadow .18s;text-decoration:none}
+.design-B .server-name a:hover,.design-B .server-name a:focus-visible{color:var(--copper);text-shadow:0 0 14px color-mix(in srgb,var(--copper) 22%,transparent);background:transparent}
+.design-B .radar-score-trigger{display:inline-flex;align-items:baseline;gap:3px;padding:8px 0;border:0;border-radius:0;background:transparent;color:inherit;font:inherit;cursor:help;outline-offset:4px}
+.design-B .radar-score-trigger strong{transition:color .18s,text-shadow .18s}
+.design-B .radar-score-trigger:hover strong,.design-B .radar-score-trigger:focus-visible strong{color:var(--copper);text-shadow:0 0 12px color-mix(in srgb,var(--copper) 18%,transparent)}
+.design-B .radar-score-tip{position:fixed;z-index:200;width:min(330px,calc(100vw - 24px));padding:18px 20px;background:var(--surface);color:var(--surface-ink);border:1px solid var(--surface-border);border-radius:8px;box-shadow:0 12px 38px #241b141c;pointer-events:none;text-align:left}
+.design-B .radar-score-tip header{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;font-weight:600}
+.design-B .radar-score-tip header strong{font-size:21px;white-space:nowrap;color:var(--copper)}
+.design-B .radar-score-tip small{font-size:10px;font-weight:400;color:var(--surface-muted)}
+.design-B .radar-score-tip>p{font-size:11px;color:var(--surface-muted);margin:10px 0 7px}
+.design-B .radar-score-tip dl{margin:0}.design-B .radar-score-tip dl>div{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid var(--surface-border);font-size:12px}
+.design-B .radar-score-tip dt small{display:block;margin-top:2px}.design-B .radar-score-tip dd{margin:0;white-space:nowrap;font-variant-numeric:tabular-nums}
+.design-B .radar-score-tip footer{display:block;padding:10px 0 0;margin:0;border:0;font-size:10px;line-height:1.6;color:var(--surface-muted)}
 
 .prototype-bar{display:none!important}
