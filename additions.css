@@ -191,5 +191,14 @@
 .design-B .info-tip-panel{position:fixed;z-index:210;box-sizing:border-box;width:min(320px,calc(100vw - 24px));padding:17px 19px;border:1px solid var(--surface-border);border-radius:8px;background:var(--surface);box-shadow:0 12px 38px #241b141c;color:var(--surface-ink);text-align:left;font-size:12px;font-weight:400;line-height:1.65;letter-spacing:normal}
 .design-B .info-tip-panel>strong{display:block;font-size:13px;font-weight:600;line-height:1.4;margin-bottom:8px}
 .design-B .info-tip-panel>div{color:var(--surface-muted)}
+.design-B .movement-metrics{display:flex;align-items:baseline;gap:25px;flex-wrap:wrap;width:100%}
+.design-B .movement-metrics>div{display:flex;align-items:baseline;gap:9px}
+.design-B .movement-metrics>div>span{font-size:12px;display:flex;align-items:center;gap:6px}
+.design-B .movement-metrics>div>span:before{content:'';display:inline-block;width:18px;height:3px;border-radius:2px;background:currentColor}
+.design-B .movement-added{color:var(--teal)}.design-B .movement-removed{color:var(--copper)}
+.design-B .movement-metrics>small{font-size:11px;color:var(--surface-muted)}
+.design-B .chart-tip .movement-tip-dates{display:block;font-size:10px;color:var(--surface-muted);margin-bottom:5px}
+.design-B .chart-tip .movement-added,.design-B .chart-tip .movement-removed{display:block;line-height:1.7}
+.design-B .chart-heading>span:first-child{display:inline-flex;align-items:center;gap:5px}
 
 .prototype-bar{display:none!important}
