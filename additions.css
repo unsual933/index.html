@@ -319,4 +319,16 @@
 .design-B .nav-bottom .snapshot-label .live-dot{margin:0;flex:none}
 .design-B .nav-bottom .snapshot small{line-height:1.4;margin-top:5px}
 
+/* Selected sniffer concept: compact sidebar logo. */
+.radar.design-B .brand{gap:9px;letter-spacing:-.55px;font-size:24px;align-items:center}
+.radar.design-B .brand .brand-icon{width:66px;height:47px;flex:0 0 66px;overflow:visible}
+.radar.design-B .brand .brand-icon img{display:block;width:66px;height:auto;transform:translateY(-4px)}
+.radar.design-B .brand .brand-light{font-weight:450}
+@media(min-width:1800px){.radar.design-B .brand{font-size:26px}.radar.design-B .brand .brand-icon{width:72px;flex-basis:72px}.radar.design-B .brand .brand-icon img{width:72px}}
+@media(max-width:700px){.radar.design-B .brand{font-size:21px;gap:5px}.radar.design-B .brand .brand-icon{width:53px;flex-basis:53px;height:37px}.radar.design-B .brand .brand-icon img{width:53px}}
+.radar.design-B .brand{font-size:21px;gap:6px;letter-spacing:-.65px}
+.radar.design-B .brand .brand-icon{width:53px;flex-basis:53px;height:42px}
+.radar.design-B .brand .brand-icon img{width:53px}
+@media(min-width:1800px){.radar.design-B .brand{font-size:23px}.radar.design-B .brand .brand-icon{width:59px;flex-basis:59px}.radar.design-B .brand .brand-icon img{width:59px}}
+
 .prototype-bar{display:none!important}
