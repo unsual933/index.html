@@ -304,5 +304,6 @@
 .design-B .studio-market .studio-timeline{margin-top:10px}
 .design-B .studio-market .studio-chart-legend{margin-top:0;padding-top:6px}
 @media(min-width:1800px){.design-B .studio-sellers-heading h3{font-size:21px}.design-B .studio-sellers-heading p{font-size:16px}}
+.design-B .farm-layout{overflow-anchor:none}
 
 .prototype-bar{display:none!important}
