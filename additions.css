@@ -152,5 +152,17 @@
 .studio-timeline svg{max-height:480px}.studio-timeline text{font-size:11px}
 @media(min-width:2200px){.studio-timeline text{font-size:13px}}
 @media(max-width:650px){.studio-timeline text{font-size:10px}.studio-timeline .studio-gap-label{font-size:9px}}
+.design-B .trend-chart,.design-B .trend-chart g,.design-B .trend-chart svg{cursor:default}
+.design-B .market-chart{width:100%;min-width:0;margin-top:18px}
+.design-B .market-chart svg{display:block;width:100%;max-width:none}
+.design-B .market-chart text{font-size:11px;font-family:inherit;fill:var(--surface-muted)}
+.design-B .market-chart .chart-line{stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.design-B .market-chart .chart-area{opacity:.055;fill:currentColor}
+.design-B .market-chart .chart-grid{stroke:var(--surface-border);stroke-dasharray:3 4;stroke-width:1}
+.design-B .market-hover-line{stroke:currentColor;stroke-opacity:.25;stroke-dasharray:3 4}
+.design-B .market-chart .chart-tip{left:auto;right:12px;top:0;bottom:auto;font-size:12px}
+.design-B .context-load .market-chart{margin-top:8px}
+.design-B .context-load .market-chart svg{height:112px}
+.design-B .market-charts>article,.design-B .market-charts>div{min-width:0}
 
 .prototype-bar{display:none!important}
