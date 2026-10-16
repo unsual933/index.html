@@ -164,5 +164,8 @@
 .design-B .context-load .market-chart{margin-top:8px}
 .design-B .context-load .market-chart svg{height:112px}
 .design-B .market-charts>article,.design-B .market-charts>div{min-width:0}
+.design-B .market-chart{height:auto;min-height:0;max-height:none;flex:none}
+.design-B .market-chart svg{max-height:none;margin:0}
+@media(max-width:700px){.design-B .market-charts{grid-template-columns:minmax(0,1fr)}.design-B .market-columns-heading{display:none}.design-B .market-chart{margin-top:14px}}
 
 .prototype-bar{display:none!important}
