@@ -200,5 +200,14 @@
 .design-B .chart-tip .movement-tip-dates{display:block;font-size:10px;color:var(--surface-muted);margin-bottom:5px}
 .design-B .chart-tip .movement-added,.design-B .chart-tip .movement-removed{display:block;line-height:1.7}
 .design-B .chart-heading>span:first-child{display:inline-flex;align-items:center;gap:5px}
+.design-B .chart-metric{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-top:12px}
+.design-B .chart-metric>strong{font-size:30px;font-weight:650;line-height:1.2;letter-spacing:-.7px;color:var(--surface-ink)}
+.design-B .chart-metric>span{font-size:16px;font-weight:600;color:var(--surface-ink);font-variant-numeric:tabular-nums}
+.design-B .chart-metric .metric-change-period{flex-basis:100%;font-size:12px;line-height:1.5;color:var(--surface-muted)}
+.design-B .chart-caption{display:block;font-size:12px;line-height:1.6;color:var(--surface-muted);margin-top:10px}
+.design-B .studio-mini-metric strong,.design-B .studio-loot-prices strong{font-weight:650}
+.design-B .chart-tip{font-size:13px}
+@media(min-width:1800px){.design-B .chart-metric>strong{font-size:34px}.design-B .chart-metric>span{font-size:18px}.design-B .chart-caption{font-size:13px}}
+@media(max-width:650px){.design-B .chart-metric>strong{font-size:26px}.design-B .chart-metric>span{font-size:15px}}
 
 .prototype-bar{display:none!important}
