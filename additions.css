@@ -209,5 +209,65 @@
 .design-B .chart-tip{font-size:13px}
 @media(min-width:1800px){.design-B .chart-metric>strong{font-size:34px}.design-B .chart-metric>span{font-size:18px}.design-B .chart-caption{font-size:13px}}
 @media(max-width:650px){.design-B .chart-metric>strong{font-size:26px}.design-B .chart-metric>span{font-size:15px}}
+/* Shared reading scale for the entire desktop interface, including portals. */
+@media(min-width:1200px){
+ .design-B{font-size:16px;line-height:1.55}
+ .design-B :is(small,.footnote,.chart-caption,.metric-change-period,.server-tags,.snapshot,.ranking-note,.table-foot,.market-disclaimer,.local-note,.assumption,.calculation-lines>div,.farm-submetrics,.server-kicker,.restricted,.studio-caveat,.studio-loot-date,.studio-loot-prices small,.studio-metric-note){font-size:14px;line-height:1.55}
+ .design-B :is(.table-head,.eyebrow,.chart-source,.source-label,.context-score>span,.context-income>span,.context-load>div>span){font-size:12px;letter-spacing:.04em}
+ .design-B :is(.nav-link,.tabs button,.desk-select-trigger,.desk-options button,.period-button,.squad-button,.stable-servers button,.chart-heading,.field-grid label,.field-grid legend,.working-method,.summary-card>p,.explanations button){font-size:16px}
+ .design-B .server-name a{font-size:24px}.design-B .forecast-cell strong{font-size:28px}
+ .design-B .info-tip-panel{width:min(360px,calc(100vw - 24px));font-size:14px;line-height:1.65;padding:20px 22px}
+ .design-B .info-tip-panel>strong{font-size:16px}
+ .design-B .radar-score-tip{box-sizing:border-box;width:min(390px,calc(100vw - 24px));padding:20px 22px}
+ .design-B .radar-score-tip header{font-size:16px}.design-B .radar-score-tip header strong{font-size:26px}
+ .design-B .radar-score-tip>p,.design-B .radar-score-tip small,.design-B .radar-score-tip footer{font-size:13px}
+ .design-B .radar-score-tip dl>div{font-size:15px;padding:9px 0}
+ .design-B .desk-list-search input,.design-B .desk-no-results,.design-B .range-panel,.design-B .squad-menu{font-size:15px}
+ .design-B .info-tip-trigger{width:28px;height:28px}.design-B .info-tip-trigger svg{width:17px;height:17px}
+ .design-B .main-content>footer{font-size:14px}
+}
+@media(min-width:1800px){
+ .design-B{font-size:18px}
+ .design-B :is(p,small,label,legend,.footnote,.chart-caption,.metric-change-period,.server-tags,.snapshot,.ranking-note,.table-foot,.market-disclaimer,.local-note,.assumption,.calculation-lines>div,.farm-submetrics,.server-kicker,.restricted,.studio-caveat,.studio-loot-date,.studio-loot-prices small,.working-method,.summary-card>p,.summary-card>small,.explanations p,.summary-disclaimer){font-size:16px;line-height:1.6}
+ .design-B :is(.table-head,.eyebrow,.chart-source,.source-label,.context-score>span,.context-income>span,.context-load>div>span,.chart-metric .metric-change-period){font-size:14px;letter-spacing:.035em}
+ .design-B :is(.nav-link,.tabs button,.desk-select-trigger,.desk-options button,.period-button,.squad-button,.stable-servers button,.chart-heading,.field-grid label,.field-grid legend,.explanations button,.dungeon-info strong,.dungeon-actions button){font-size:18px}
+ .design-B .page-heading h1,.design-B .studio-heading h1{font-size:44px}
+ .design-B .page-heading p{font-size:19px}.design-B .working-group>h3{font-size:24px}
+ .design-B .server-name a{font-size:27px}.design-B .forecast-cell strong{font-size:32px}
+ .design-B .forecast-cell small{font-size:15px}.design-B .score-cell strong{font-size:30px}
+ .design-B .server-row{min-height:110px}
+ .design-B .market-chart text{font-size:14px}.design-B .chart-tip{font-size:16px}
+ .design-B .movement-metrics>div>span,.design-B .movement-metrics>small{font-size:16px}
+ .design-B .info-tip-panel{width:min(410px,calc(100vw - 24px));font-size:16px;padding:22px 25px}
+ .design-B .info-tip-panel>strong{font-size:18px}
+ .design-B .radar-score-tip{width:min(440px,calc(100vw - 24px));padding:23px 26px}
+ .design-B .radar-score-tip header{font-size:18px}.design-B .radar-score-tip header strong{font-size:30px}
+ .design-B .radar-score-tip>p,.design-B .radar-score-tip small,.design-B .radar-score-tip footer{font-size:15px}
+ .design-B .radar-score-tip dl>div{font-size:17px;padding:10px 0}
+ .design-B .desk-list-search input,.design-B .desk-no-results,.design-B .range-panel,.design-B .squad-menu{font-size:17px}
+ .design-B .main-content>footer{font-size:16px}
+}
+@media(min-width:1200px){
+ .design-B :is(.select-field>span,.section-toolbar>.muted,.launch-tag,.rank-number,.banner-meta>span,.game-status,.pick-facts span,.summary-topline>*,.summary-grid h2>span,.summary-card h2>span){font-size:13px}
+ .design-B :is(.pick-section .wide,.studio-server>span,.studio-score>span,.studio-ranges button,.studio-chart-legend strong,.studio-loot-prices>div>span){font-size:14px}
+}
+@media(min-width:1800px){
+ .design-B :is(.select-field>span,.section-toolbar>.muted,.launch-tag,.rank-number,.banner-meta>span,.game-status,.pick-facts span,.summary-topline>*,.summary-grid h2>span,.summary-card h2>span){font-size:15px}
+ .design-B :is(.pick-section .wide,.studio-server>span,.studio-score>span,.studio-ranges button,.studio-chart-legend strong,.studio-loot-prices>div>span){font-size:16px}
+ .design-B .studio-timeline text{font-size:15px}.design-B .studio-timeline .studio-gap-label{font-size:13px}
+ .design-B .studio-chart-legend{font-size:16px}.design-B .studio-chart-tip{font-size:16px}
+ .design-B .studio-chart-legend strong{font-size:18px}
+}
+@media(min-width:1200px){
+ .design-B :is(.segmented button,.extra-scenario>summary,.desk-select-trigger>span,.dungeon-title button,.dungeon-info>span,.energy-disabled,.reset-price,.price-input-label>span){font-size:14px}
+ .design-B .dungeon-type{font-size:12px;letter-spacing:.03em}
+ .design-B .dungeon{min-height:230px}.design-B .dungeon-info{padding:14px}
+}
+@media(min-width:1800px){
+ .design-B :is(.segmented button,.extra-scenario>summary,.desk-select-trigger>span,.dungeon-title button,.dungeon-info>span,.energy-disabled,.reset-price,.price-input-label>span){font-size:16px}
+ .design-B .dungeon-type{font-size:14px;letter-spacing:.03em}
+ .design-B .dungeon{min-height:260px}.design-B .dungeon-info{padding:16px}
+ .design-B .studio-loot-card h3{font-size:20px}
+}
 
 .prototype-bar{display:none!important}
