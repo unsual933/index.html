@@ -305,5 +305,15 @@
 .design-B .studio-market .studio-chart-legend{margin-top:0;padding-top:6px}
 @media(min-width:1800px){.design-B .studio-sellers-heading h3{font-size:21px}.design-B .studio-sellers-heading p{font-size:16px}}
 .design-B .farm-layout{overflow-anchor:none}
+/* Keep the sidebar background flush with the viewport and fit its footer. */
+@media(min-width:651px){
+ .design-B .app-nav{height:100dvh;min-height:100dvh;box-sizing:border-box;align-self:start;min-width:0}
+ .design-B .nav-bottom{width:100%;min-width:0;box-sizing:border-box;gap:8px;align-items:center}
+ .design-B .nav-bottom .snapshot{display:block;flex:1;min-width:0;white-space:normal;font-size:14px;line-height:1.4;overflow-wrap:normal}
+ .design-B .nav-bottom .snapshot small{font-size:12px;margin:5px 0 0;white-space:normal}
+ .design-B .nav-bottom>.ui-button{flex:none;width:30px;min-width:30px;height:30px;padding:5px;margin:0}
+ .design-B .nav-bottom>.ui-button svg{width:18px;height:18px}
+}
+@media(min-width:1800px){.design-B .nav-bottom .snapshot{font-size:16px}.design-B .nav-bottom .snapshot small{font-size:14px}}
 
 .prototype-bar{display:none!important}
