@@ -298,5 +298,11 @@
 .design-B .desk-squad .squad-total>span{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .design-B .desk-squad .squad-total small{display:inline;margin:0}
 .design-B .desk-squad .menu-footer{padding:12px 20px}
+.design-B .studio-sellers-heading{margin-top:24px;padding-top:20px;border-top:1px solid var(--surface-border)}
+.design-B .studio-sellers-heading h3{display:flex;gap:6px;align-items:center;margin:0;font-size:18px;font-weight:600}
+.design-B .studio-sellers-heading p{margin:5px 0 0;color:var(--surface-muted);font-size:14px}
+.design-B .studio-market .studio-timeline{margin-top:10px}
+.design-B .studio-market .studio-chart-legend{margin-top:0;padding-top:6px}
+@media(min-width:1800px){.design-B .studio-sellers-heading h3{font-size:21px}.design-B .studio-sellers-heading p{font-size:16px}}
 
 .prototype-bar{display:none!important}
