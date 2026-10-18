@@ -342,4 +342,25 @@
 
 .review-sales-card{display:flex;flex-direction:column;gap:12px}.review-sales-coverage{display:grid;gap:12px;margin:8px 0 20px}.review-sales-coverage span{display:flex;justify-content:space-between;gap:20px}.review-sales-card .chart-caption{margin-top:auto;line-height:1.6}
 
+/* Consistent text interaction: no rectangular hover fills on text controls. */
+.radar.design-B :is(.tabs .ui-button,.select-field .desk-select-trigger,.studio-text-link,.studio-select .desk-select-trigger,.explanations .ui-button):is(:hover,[aria-expanded=true]){background:transparent!important;box-shadow:none!important;border-color:transparent;color:var(--copper);text-shadow:0 0 14px #b96c3540}
+.radar.design-B .tabs .ui-button{background:transparent!important;border-radius:0}
+.radar.design-B .tabs .ui-button.active{border-bottom:2px solid var(--copper)}
+.radar.design-B .filter-bar{gap:18px;padding:15px 0;align-items:center;flex-wrap:wrap}
+.radar.design-B .filter-bar .select-field{display:flex;flex-direction:column;align-items:flex-start;gap:3px;border-right:0;padding:0;min-width:120px}
+.radar.design-B .filter-bar .select-field>span{font-size:13px;color:var(--surface-muted)}
+.radar.design-B .filter-bar .select-field>.desk-select{width:100%}
+.radar.design-B .filter-bar .select-field>svg{display:none}
+.radar.design-B .filter-bar .desk-select-trigger{padding:4px 0;gap:12px}
+.radar.design-B .filter-bar .desk-select-trigger>svg{display:block;opacity:.7;flex:0 0 auto}
+.radar.design-B .game-banner{height:clamp(210px,15vw,300px)}
+.radar.design-B .game-banner>img{object-fit:cover;object-position:center 43%}
+@media(max-width:700px){.radar.design-B .game-banner{height:190px}.radar.design-B .banner-meta{display:none}.radar.design-B .filter-bar .select-field{min-width:calc(50% - 12px)}}
+.radar.design-B .studio-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.radar.design-B .studio-chart-panel{min-width:0}
+@media(max-width:1100px){.radar.design-B .studio-charts{grid-template-columns:1fr}}
+.review-pair-bars{display:grid;gap:24px;min-height:190px;align-content:center}.review-pair-bars>div{display:grid;gap:6px}.review-pair-bars strong{font-size:26px}.review-bar{height:9px;border-radius:4px;min-width:3px;background:var(--teal)}
+
+.moderation-checked{display:block;font-size:13px;line-height:1.5;color:var(--muted-foreground);max-width:130px;flex-shrink:0}
+
 .prototype-bar{display:none!important}
