@@ -78,7 +78,20 @@ function eventBoundIncome(data,ref){
  // Display order of an already selected market shortlist. Does not change eligibility or scores.
  function funpayOrder(data,rows,profile){const values=new Map(rows.map(r=>[r.id,income(data,r,profile,'funpay')?.min??null]));return rows.slice().sort((a,b)=>{let x=values.get(a.id),y=values.get(b.id);return Number(known(y))-Number(known(x))||(known(x)&&known(y)?y-x:0)||(b.score??-1)-(a.score??-1)||a.server.localeCompare(b.server,'en');});}
  function median(values){const a=values.slice().sort((a,b)=>a-b),n=a.length;return n?(n%2?a[(n-1)/2]:(a[n/2-1]+a[n/2])/2):null;}
- function smoothFactors(value,reference,policy){const clip=x=>Math.max(0,Math.min(100,x));return [clip(100*value.payout/reference.best_income),value.activity===null?(policy.activity_source==='review_sales'?policy.missing_review_factor:0):(value.activity+reference.activity_median>0?100*value.activity/(value.activity+reference.activity_median)*(policy.activity_source==='review_sales'?1:Math.min(1,(value.reduction_sellers??3)/policy.min_reduction_sellers)):0),100*reference.sellers_median/(value.sellers+reference.sellers_median),value.price_daily_pct===null?0:50+50*value.price_daily_pct/(Math.abs(value.price_daily_pct)+policy.price_daily_soft_scale_pct),clip(value.load)];}
+ function smoothFactors(value,reference,policy){
+   const clip=x=>Math.max(0,Math.min(100,x)),review=policy.activity_source==='review_sales';
+   const sat=(x,med)=>x+med>0?100*x/(x+med):0,shrink=policy.activity_shrinkage_sellers??3,volumeShare=policy.activity_volume_share??0,med=reference.activity_median||0;
+   let activity;
+   if(value.activity===null)activity=review?null:0;                                  // v6: без выборки компонент не считается вместо нейтрального вклада
+   else if(!review)activity=sat(value.activity,med)*Math.min(1,(value.reduction_sellers??3)/policy.min_reduction_sellers);
+   else{const n=Number(value.review_sellers)||0;
+     const intensity=value.activity===0?0:sat((n*value.activity+shrink*med)/(n+shrink),med);   // малая выборка прижимается к медиане; наблюдаемый ноль остаётся нулём
+     if(volumeShare>0){const sales=Number(value.review_sales)||0,smed=reference.sales_median||0;
+       const volume=sales===0?0:sat((n*sales+shrink*smed)/(n+shrink),smed);           // вторая половина — общий объём продаж против своей когорты
+       activity=(1-volumeShare)*intensity+volumeShare*volume;}
+     else activity=intensity;}
+   return [clip(100*value.payout/reference.best_income),activity,100*reference.sellers_median/(value.sellers+reference.sellers_median),value.price_daily_pct===null?0:50+50*value.price_daily_pct/(Math.abs(value.price_daily_pct)+policy.price_daily_soft_scale_pct),clip(value.load)];
+ }
  function rankFunpay(data,comparison,profile){
    const policy=data.funpay_ranking_policy;if(!policy)return comparison.rows;
    let index=new Map();for(let x of data.funpay_listing_intervals||[])if(x.from_day>=comparison.start&&x.to_day<=comparison.end){if(!index.has(x.id))index.set(x.id,[]);index.get(x.id).push(x);}
@@ -103,14 +116,17 @@ function eventBoundIncome(data,ref){
      v.activity_source='review_sales';v.review_sales=review?.review_sales??null;v.review_sellers=review?.eligible_sellers??0;v.review_sellers_with_sales=review?.sellers_with_reviews??0;v.review_incomplete_histories=review?.incomplete_histories??0;v.review_period=source?.period_label??null;
      v.activity=review&&review.eligible_sellers>0?review.review_sales/review.eligible_sellers:null;
      v.warnings=v.warnings.filter(x=>!x.includes('остатк')&&!x.includes('часов объявлений'));
-     if(v.activity===null)v.warnings.push('Нет подходящей выборки отзывов на эту дату: нейтральный вклад, продажи неизвестны');
+     if(v.activity===null)v.warnings.push('Нет подходящей выборки отзывов на эту дату: этот показатель не считается, его вес перераспределён по остальным, продажи неизвестны');
      else {v.warnings.push('Продажи по отзывам: '+source.period_label+'; это не число продаж за выбранные дни');if(v.review_sellers<3)v.warnings.push('Малая выборка проверенных продавцов');if(v.review_incomplete_histories)v.warnings.push('Часть историй отзывов просмотрена не полностью');}
    }
    for(let region of (comparison.all_regions?['']:['EU','NA-EAST','NA-WEST']))for(let age of ['NRD / Early Access','Free / Launch']){
      let pool=comparison.rows.filter(r=>(!region||r.region===region)&&r.age===age&&!r.funpay_rank.problems.length);
      if(!pool.length)continue;
-     const reference={best_income:Math.max(1,...pool.map(x=>x.funpay_rank.payout)),activity_median:median(pool.map(x=>x.funpay_rank.activity).filter(x=>known(x)&&(policy.activity_source!=='review_sales'||x>0)))||0,sellers_median:median(pool.map(x=>x.end.platforms.funpay.sellers))};
-     for(let r of pool){let v=r.funpay_rank;v.reference=reference;v.factors=smoothFactors({...v,sellers:r.end.platforms.funpay.sellers,load:r.end.load24},reference,policy);v.scores=policy.scenarios.map(w=>w.reduce((s,a,i)=>s+a*v.factors[i],0));v.score=v.scores[0];v.contributions=v.factors.map((x,i)=>x*policy.scenarios[0][i]);v.cohort=pool.length;}
+     const reference={best_income:Math.max(1,...pool.map(x=>x.funpay_rank.payout)),activity_median:median(pool.map(x=>x.funpay_rank.activity).filter(x=>known(x)&&(policy.activity_source!=='review_sales'||x>0)))||0,sales_median:median(pool.map(x=>x.funpay_rank.review_sales).filter(x=>known(x)&&x>0))||0,sellers_median:median(pool.map(x=>x.end.platforms.funpay.sellers))};
+     for(let r of pool){let v=r.funpay_rank;v.reference=reference;v.factors=smoothFactors({...v,sellers:r.end.platforms.funpay.sellers,load:r.end.load24},reference,policy);
+      const available=v.factors.map(x=>known(x));                                   // v6: неизвестная ликвидность не получает баллов — вес перераспределяется
+      v.scores=policy.scenarios.map(w=>{const denom=w.reduce((s,a,i)=>s+(available[i]?a:0),0)||1;return w.reduce((s,a,i)=>s+(available[i]?a*v.factors[i]:0),0)/denom;});
+      v.score=v.scores[0];v.contributions=v.factors.map((x,i)=>available[i]?x*policy.scenarios[0][i]:null);v.cohort=pool.length;}
    }
    return comparison.rows;
  }
