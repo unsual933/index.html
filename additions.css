@@ -363,4 +363,13 @@
 
 .moderation-checked{display:block;font-size:13px;line-height:1.5;color:var(--muted-foreground);max-width:130px;flex-shrink:0}
 
+/* Three indicators belong to the same summary strip. */
+.radar.design-B .summary-bottom{display:grid;grid-template-columns:1.2fr 1fr 1fr}
+.radar.design-B .summary-bottom .signal-block{min-width:0;flex-wrap:wrap;align-content:center}
+.radar.design-B .summary-bottom .signal-block+.signal-block{border-left:1px solid #ffffff12}
+.radar.design-B .summary-bottom .signal-block>div:not(.signal-icon){flex:1;min-width:0}
+.radar.design-B .summary-bottom .moderation-checked{margin-left:64px;max-width:none;font-size:12px}
+.radar.design-B .summary-bottom .signal-radio{display:none}
+@media(max-width:1100px){.radar.design-B .summary-bottom{grid-template-columns:1fr}.radar.design-B .summary-bottom .signal-block+.signal-block{border-left:0;border-top:1px solid #ffffff12}}
+
 .prototype-bar{display:none!important}
