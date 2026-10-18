@@ -377,4 +377,8 @@
 .radar.design-B .summary-bottom .eyebrow{flex-wrap:wrap;letter-spacing:.7px;line-height:1.5}
 .radar.design-B .info-tip-panel p+p{margin-top:12px}
 
+/* Keep summary explanations beside the heading and align the three values. */
+.radar.design-B .summary-bottom .eyebrow{display:grid;grid-template-columns:minmax(0,1fr) 18px;column-gap:6px;align-items:start;min-height:3em}
+.radar.design-B .summary-bottom .eyebrow .info-tip-trigger{margin-left:0;margin-top:2px}
+
 .prototype-bar{display:none!important}
