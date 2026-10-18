@@ -372,4 +372,9 @@
 .radar.design-B .summary-bottom .signal-radio{display:none}
 @media(max-width:1100px){.radar.design-B .summary-bottom{grid-template-columns:1fr}.radar.design-B .summary-bottom .signal-block+.signal-block{border-left:0;border-top:1px solid #ffffff12}}
 
+.radar.design-B .summary-bottom .signal-block{min-height:128px;flex-wrap:nowrap}
+.radar.design-B .summary-bottom .info-tip-trigger{color:var(--copper);margin-left:4px;flex-shrink:0}
+.radar.design-B .summary-bottom .eyebrow{flex-wrap:wrap;letter-spacing:.7px;line-height:1.5}
+.radar.design-B .info-tip-panel p+p{margin-top:12px}
+
 .prototype-bar{display:none!important}
