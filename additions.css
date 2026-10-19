@@ -396,4 +396,9 @@ html{scrollbar-gutter:stable}
 .radar.design-B .server-context .context-load>div:first-child{gap:6px}
 @media(max-width:650px){.radar.design-B .stable-servers{flex:1 0 100%}}
 
+/* Place banner copy and update details at opposite vertical corners. */
+.radar.design-B .game-banner{align-items:stretch}
+.radar.design-B .game-banner-copy{align-self:flex-start}
+.radar.design-B .game-banner .banner-meta{align-self:flex-end}
+
 .prototype-bar{display:none!important}
