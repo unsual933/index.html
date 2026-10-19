@@ -96,6 +96,14 @@ function eventBoundIncome(data,ref){
      else activity=intensity;}
    return [clip(100*value.payout/reference.best_income),activity,100*reference.sellers_median/(value.sellers+reference.sellers_median),value.price_daily_pct===null?0:50+50*value.price_daily_pct/(Math.abs(value.price_daily_pct)+policy.price_daily_soft_scale_pct),clip(value.load)];
  }
+ function reviewSnapshot(source,end){
+   let selected=null;
+   for(const snapshot of [...(source?.history||[]),...(source?[source]:[])]){
+     if(!snapshot.period_start||!snapshot.period_end||end<snapshot.period_start||end<snapshot.period_end)continue;
+     if(!selected||snapshot.period_end>selected.period_end||snapshot.period_end===selected.period_end&&(snapshot.observed_at||'')>=(selected.observed_at||''))selected=snapshot;
+   }
+   return selected;
+ }
  function rankFunpay(data,comparison,profile){
    const policy=data.funpay_ranking_policy;if(!policy)return comparison.rows;
    let index=new Map();for(let x of data.funpay_listing_intervals||[])if(x.from_day>=comparison.start&&x.to_day<=comparison.end){if(!index.has(x.id))index.set(x.id,[]);index.get(x.id).push(x);}
@@ -116,7 +124,7 @@ function eventBoundIncome(data,ref){
      r.funpay_rank={score:null,scores:null,problems,warnings,intervals:points.length,observations:opportunities,reductions,reduction_sellers:sellers.size,activity:exposureHours>0&&points.length>=policy.min_intervals&&opportunities>=policy.min_observations&&observedHours>=policy.min_observed_hours?reductions/exposureHours:null,exposure_hours:exposureHours,first,last,elapsed_hours:hours,observed_hours:observedHours,price_first:q0?.date||null,price_last:q1?.date||null,price_daily_pct:priceDays>=1&&q1?.date===(r.available_end||comparison.end)?retention:null,payout:payout?.min??null,excluded,partial_period:points.length?points.reduce((a,b)=>a.from_day<b.from_day?a:b).from_day>comparison.start:true,confirmed_sales:null};
    }
    if(policy.activity_source==='review_sales')for(let r of comparison.rows){
-     const v=r.funpay_rank,source=data.funpay_review_sales,valid=source&&comparison.end>=source.period_start&&comparison.end>=source.period_end,review=valid?source.rows[r.id]:null;
+     const v=r.funpay_rank,source=reviewSnapshot(data.funpay_review_sales,comparison.end),review=source?.rows[r.id]??null;
      v.activity_source='review_sales';v.review_sales=review?.review_sales??null;v.review_sellers=review?.eligible_sellers??0;v.review_sellers_with_sales=review?.sellers_with_reviews??0;v.review_incomplete_histories=review?.incomplete_histories??0;v.review_period=source?.period_label??null;
      v.activity=review&&review.eligible_sellers>0?review.review_sales/review.eligible_sellers:null;
      v.warnings=v.warnings.filter(x=>!x.includes('остатк')&&!x.includes('часов объявлений'));
@@ -153,5 +161,5 @@ function eventBoundIncome(data,ref){
  function g2gGroup(rows,age,faction){return rows.filter(r=>r.age===age&&r.faction===faction&&known(r.g2g_rank?.score)&&r.g2g_rank.sold_growth>0&&known(r.g2g_rank.sold_daily)&&r.g2g_rank.sold_daily>0).slice().sort((a,b)=>b.g2g_rank.score-a.g2g_rank.score||b.g2g_rank.payout-a.g2g_rank.payout);}
  function boundIncome(data,ref){if(ref?.event_character_claims)return eventBoundIncome(data,ref);if(!ref||!data.bound_vendor)return null;const rows=data.bound_vendor.dungeons,a=rows.find(x=>x.dungeon===ref.main_dungeon),b=rows.find(x=>x.dungeon===ref.alts_dungeon),n=data.roster_alts??5;if(!a||(n>0&&!b))return null;const count=data.energy_shop?25:21,extra=data.energy_account?16:0,accounts=data.accounts??1,mainClaims=count+(ref.account_energy_recipient==='alt'?0:extra),altClaims=n*count+(ref.account_energy_recipient==='alt'?extra:0),earned=(mainClaims*a.per_reward_min+altClaims*(b?.per_reward_min||0))*accounts,cost=((data.energy_shop?400000*(n+1):0)+(data.energy_account?1600000:0))*accounts;return {earned,cost,balance:earned-cost};}
  function funpayGroup(rows,age,faction,risky=false){let pool=rows.filter(r=>r.age===age&&r.faction===faction&&known(r.funpay_rank?.score)&&(r.funpay_rank.activity_source==='review_sales'?(risky?!(r.funpay_rank.review_sales>0&&r.funpay_rank.review_sellers>0):r.funpay_rank.review_sales>0&&r.funpay_rank.review_sellers>0):(risky?(r.funpay_rank.reduction_sellers<3||r.funpay_rank.activity===null||r.funpay_rank.activity<=0):r.funpay_rank.activity!==null&&r.funpay_rank.activity>0&&r.funpay_rank.reduction_sellers>=3)));const sorted=(i=0)=>pool.slice().sort((a,b)=>(risky?b.funpay_rank.payout-a.funpay_rank.payout:b.funpay_rank.scores[i]-a.funpay_rank.scores[i])||b.funpay_rank.payout-a.funpay_rank.payout||a.server.localeCompare(b.server,'en'));const first=sorted(),places=(first[0]?.funpay_rank.scores||[]).map((_,i)=>positionIndex(i?sorted(i):first));return first.map(r=>{let positions=places.map(p=>p.get(r.id));return {...r,funpay_robust:{min:Math.min(...positions),max:Math.max(...positions),top5:positions.filter(x=>x<=5).length}};});}
- return {rankG2G,g2gGroup,scenarios,known,percentile,dates,priceChange,priceMovement,order,compare,filter,group,union,availablePeriod,availableUnion,sampledLoad,movements,external,proceeds,rosterReference,boundIncome,income,funpayOrder,rankFunpay,funpayGroup,median,smoothFactors};
+ return {reviewSnapshot,rankG2G,g2gGroup,scenarios,known,percentile,dates,priceChange,priceMovement,order,compare,filter,group,union,availablePeriod,availableUnion,sampledLoad,movements,external,proceeds,rosterReference,boundIncome,income,funpayOrder,rankFunpay,funpayGroup,median,smoothFactors};
 });

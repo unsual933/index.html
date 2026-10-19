@@ -381,4 +381,7 @@
 .radar.design-B .summary-bottom .eyebrow{display:grid;grid-template-columns:minmax(0,1fr) 18px;column-gap:6px;align-items:start;min-height:3em}
 .radar.design-B .summary-bottom .eyebrow .info-tip-trigger{margin-left:0;margin-top:2px}
 
+.radar.design-B .empty-state>p{margin:0 0 16px}
+.radar.design-B .calendar-grid button:disabled{cursor:not-allowed}
+
 .prototype-bar{display:none!important}
