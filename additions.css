@@ -386,4 +386,14 @@ html{scrollbar-gutter:stable}
 .radar.design-B .app-layout>.main-content{width:100%;max-width:none;min-width:0;box-sizing:border-box;margin-inline:0}
 .radar.design-B .comparison-studio{width:100%;max-width:none;min-width:0;margin-inline:0;box-sizing:border-box}
 
+/* Server overview uses the same page origin and a compact, bounded context. */
+.radar.design-B .server-selection{width:100%;min-width:0;box-sizing:border-box}
+.radar.design-B .server-search-wrap{flex:0 0 auto}
+.radar.design-B .stable-servers{flex:1;min-width:0;max-width:100%;overflow-x:auto}
+.radar.design-B .stable-servers>button{flex-shrink:0}
+.radar.design-B .server-context>div{min-width:0}
+.radar.design-B .server-context .context-load .trend-chart svg{display:block;width:100%;height:72px;min-height:0;max-height:72px}
+.radar.design-B .server-context .context-load>div:first-child{gap:6px}
+@media(max-width:650px){.radar.design-B .stable-servers{flex:1 0 100%}}
+
 .prototype-bar{display:none!important}
