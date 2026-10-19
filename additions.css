@@ -404,4 +404,11 @@ html{scrollbar-gutter:stable}
 .radar.design-B .context-score .radar-score-trigger{justify-content:flex-start;padding:0;color:var(--teal)}
 
 
+.design-B .desk-server-count{display:block;padding:10px 9px 12px;font-size:11px;letter-spacing:1px;color:var(--muted-foreground)}
+.design-B .desk-server-options .desk-options>button{padding:13px 9px;border-radius:0;border-bottom:1px solid var(--surface-border);gap:16px;align-items:center}
+.design-B .desk-server-options .desk-server-description{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 8px;min-width:0}
+.design-B .desk-server-description strong{font-size:13px;font-weight:650}
+.design-B .desk-server-description small{font-size:10px;line-height:1.5;color:var(--muted-foreground)}
+.design-B .desk-server-options .desk-server-score{font-size:13px;color:var(--teal);margin-left:auto;flex-shrink:0}
+
 .prototype-bar{display:none!important}
