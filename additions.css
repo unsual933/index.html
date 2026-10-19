@@ -384,4 +384,9 @@
 .radar.design-B .empty-state>p{margin:0 0 16px}
 .radar.design-B .calendar-grid button:disabled{cursor:not-allowed}
 
+/* One page frame for every route; content cannot change the available width. */
+html{scrollbar-gutter:stable}
+.radar.design-B .app-layout>.main-content{width:100%;max-width:none;min-width:0;box-sizing:border-box;margin-inline:0}
+.radar.design-B .comparison-studio{width:100%;max-width:none;min-width:0;margin-inline:0;box-sizing:border-box}
+
 .prototype-bar{display:none!important}
