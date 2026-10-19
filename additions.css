@@ -363,23 +363,20 @@
 
 .moderation-checked{display:block;font-size:13px;line-height:1.5;color:var(--muted-foreground);max-width:130px;flex-shrink:0}
 
-/* Three indicators belong to the same summary strip. */
-.radar.design-B .summary-bottom{display:grid;grid-template-columns:1.2fr 1fr 1fr}
-.radar.design-B .summary-bottom .signal-block{min-width:0;flex-wrap:wrap;align-content:center}
+/* Equal summary metrics with shared heading and value alignment. */
+.radar.design-B .summary-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.radar.design-B .summary-bottom .signal-block{display:grid;grid-template-columns:44px minmax(0,1fr);gap:16px;align-items:center;min-width:0;min-height:116px;padding:24px;border-radius:0;box-sizing:border-box}
 .radar.design-B .summary-bottom .signal-block+.signal-block{border-left:1px solid #ffffff12}
-.radar.design-B .summary-bottom .signal-block>div:not(.signal-icon){flex:1;min-width:0}
-.radar.design-B .summary-bottom .moderation-checked{margin-left:64px;max-width:none;font-size:12px}
+.radar.design-B .summary-bottom .signal-icon{display:grid;width:44px;height:48px;flex-shrink:0}
+.radar.design-B .summary-bottom .signal-block>div:not(.signal-icon){min-width:0;display:grid;grid-template-rows:32px auto;gap:6px}
+.radar.design-B .summary-bottom .eyebrow{display:grid;grid-template-columns:minmax(0,1fr) 18px;gap:10px;align-items:start;min-height:0;font-size:12px;line-height:16px;letter-spacing:.6px}
+.radar.design-B .summary-bottom .info-tip-trigger{color:var(--copper);margin:0;flex-shrink:0}
+.radar.design-B .summary-bottom h2{margin:0;font-size:30px;line-height:36px;font-weight:550;font-variant-numeric:tabular-nums}
+.radar.design-B .summary-bottom h2 span{font-size:12px;line-height:18px;white-space:normal}
 .radar.design-B .summary-bottom .signal-radio{display:none}
-@media(max-width:1100px){.radar.design-B .summary-bottom{grid-template-columns:1fr}.radar.design-B .summary-bottom .signal-block+.signal-block{border-left:0;border-top:1px solid #ffffff12}}
-
-.radar.design-B .summary-bottom .signal-block{min-height:128px;flex-wrap:nowrap}
-.radar.design-B .summary-bottom .info-tip-trigger{color:var(--copper);margin-left:4px;flex-shrink:0}
-.radar.design-B .summary-bottom .eyebrow{flex-wrap:wrap;letter-spacing:.7px;line-height:1.5}
 .radar.design-B .info-tip-panel p+p{margin-top:12px}
-
-/* Keep summary explanations beside the heading and align the three values. */
-.radar.design-B .summary-bottom .eyebrow{display:grid;grid-template-columns:minmax(0,1fr) 18px;column-gap:6px;align-items:start;min-height:3em}
-.radar.design-B .summary-bottom .eyebrow .info-tip-trigger{margin-left:0;margin-top:2px}
+@media(min-width:1600px){.radar.design-B .summary-bottom .signal-block>div:not(.signal-icon){grid-template-rows:18px auto;gap:10px}}
+@media(max-width:1100px){.radar.design-B .summary-bottom{grid-template-columns:1fr}.radar.design-B .summary-bottom .signal-block{min-height:104px}.radar.design-B .summary-bottom .signal-block+.signal-block{border-left:0;border-top:1px solid #ffffff12}.radar.design-B .summary-bottom .signal-block>div:not(.signal-icon){grid-template-rows:auto auto;gap:10px}}
 
 .radar.design-B .empty-state>p{margin:0 0 16px}
 .radar.design-B .calendar-grid button:disabled{cursor:not-allowed}
