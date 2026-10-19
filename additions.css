@@ -401,4 +401,7 @@ html{scrollbar-gutter:stable}
 .radar.design-B .game-banner-copy{align-self:flex-start}
 .radar.design-B .game-banner .banner-meta{align-self:flex-end}
 
+.radar.design-B .context-score .radar-score-trigger{justify-content:flex-start;padding:0;color:var(--teal)}
+
+
 .prototype-bar{display:none!important}
