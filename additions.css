@@ -411,4 +411,6 @@ html{scrollbar-gutter:stable}
 .design-B .desk-server-description small{font-size:10px;line-height:1.5;color:var(--muted-foreground)}
 .design-B .desk-server-options .desk-server-score{font-size:13px;color:var(--teal);margin-left:auto;flex-shrink:0}
 
+.period-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.radar.design-B .latest-data-button{color:var(--teal);font-size:12px;white-space:nowrap}
+
 .prototype-bar{display:none!important}
