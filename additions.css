@@ -413,4 +413,6 @@ html{scrollbar-gutter:stable}
 
 .period-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.radar.design-B .latest-data-button{color:var(--teal);font-size:12px;white-space:nowrap}
 
+.range-presets{display:flex;gap:8px;margin:12px 0}.range-presets button{padding:7px 10px;border:1px solid var(--border);border-radius:3px;font-size:12px;background:transparent;cursor:pointer}
+
 .prototype-bar{display:none!important}
