@@ -415,9 +415,8 @@ html{scrollbar-gutter:stable}
 
 .range-presets{display:flex;gap:8px;margin:12px 0}.range-presets button{padding:7px 10px;border:1px solid var(--border);border-radius:3px;font-size:12px;background:transparent;cursor:pointer}
 
-.design-B .quna-reference{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;margin:0 0 20px;border-bottom:1px solid var(--border)}
-.design-B .quna-main{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.design-B .quna-main>span{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted-foreground)}.design-B .quna-main>strong{font-size:20px;font-weight:650;white-space:nowrap}.design-B .quna-main strong small{font-size:12px;font-weight:400;color:var(--muted-foreground)}.design-B .quna-main time{font-size:11px;color:var(--muted-foreground)}
-.design-B .quna-comparison{display:flex;gap:24px;flex-wrap:wrap}.design-B .quna-comparison>div{display:flex;gap:8px;align-items:center;font-size:12px}.design-B .quna-comparison span{color:var(--muted-foreground)}.design-B .quna-comparison strong{font-weight:500}
-@media(max-width:700px){.design-B .quna-reference{align-items:flex-start;flex-direction:column;gap:10px}.design-B .quna-main{gap:10px}.design-B .quna-comparison{gap:18px}}
+.design-B .quna-inline{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:6px 0 12px;font-size:12px;line-height:1.4;color:var(--muted-foreground)}
+.design-B .quna-inline b{font-size:12px;font-weight:500;color:var(--foreground)}
+.design-B .quna-inline .info-tip-trigger{margin:0}
 
 .prototype-bar{display:none!important}
