@@ -419,4 +419,7 @@ html{scrollbar-gutter:stable}
 .design-B .quna-inline b{font-size:12px;font-weight:500;color:var(--foreground)}
 .design-B .quna-inline .info-tip-trigger{margin:0}
 
+/* Source dates are shown on demand, independently of the report timestamp. */
+.help-modal:has(.source-freshness){max-height:85vh;overflow:auto}.source-freshness-row{display:grid;grid-template-columns:1fr auto;gap:4px 16px;padding:12px 0;border-bottom:1px solid var(--line,#d8cfc3)}.source-freshness-row small{grid-column:1/-1;color:var(--surface-muted,#786b5d)}.source-freshness-row>span{font-size:12px}
+
 .prototype-bar{display:none!important}

@@ -1,0 +1,11 @@
+/.gitattributes -text
+/.nojekyll -text
+/index.html -text
+/app.js -text
+/model.js -text
+/*.css -text
+/data*.json* -text
+/extra*.json* -text
+/publication.json -text
+/radar-managed.json -text
+/assets/** -text
