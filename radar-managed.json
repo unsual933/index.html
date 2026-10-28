@@ -2,8 +2,8 @@
   "files": {
     ".gitattributes": "1e8ad41590a595651368c09fcbbfaf01573e7cffc3cd437927364be1d5f78f22",
     ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "additions.css": "ed43ccbff64955f29ed2dfe605348e6569119202a9022a198128181a1a15f469",
-    "app.js": "7f24d7ab6918be4657fceee4bcc56d0161900a1845d4f1d0aaf1dbca17caa839",
+    "additions.css": "e856aa5b14917d873e8fd6eee27497788d13b073572a7f98db2e85b8759366e5",
+    "app.js": "adec325a8764854625ca6a19b897afa9f360ad086bf2546b7dda2a9011e33272",
     "assets/draupnir-game.webp": "9d17ca3eddce44e33fa0be058344e09e2b8df753e13599d970c4146949e675a4",
     "assets/fire-temple-game.webp": "a3ce653eedb5ffc787ed2b7e08441cdc6ae61e90e3e945b0dba2d404c50d4f81",
     "assets/fonts/GolosText.ttf": "17bb58fb69aec2dfb047a2ebf52534023e9b688c97a6b7ac795b0a72912c2063",
@@ -39,7 +39,7 @@
     "extra.f45985a26bb0469e664652bd0b3e548486ae83545dce4de301622879ce0e3113.json.gz": "1ddbc38795ef741d2120d967438234428d295c70519dc6c4ba2c6dea483df9ce",
     "extra.json": "8eeebcf7a7efdddebd03764ff4cdbfbea64f6da306c687b3986764b1dc99afa0",
     "extra.json.gz": "1ddbc38795ef741d2120d967438234428d295c70519dc6c4ba2c6dea483df9ce",
-    "index.html": "08d5325c1ca19f53f2e66bc879cdc832aac3b1f7b2a105ad6faaba6f7c8bba48",
+    "index.html": "a600740f46510c3bc9f6ce850b1fe021f8c43455fc47f6ad108a325a9b86658e",
     "model.js": "e4dc9dd5b176dac64746d7d469fab6a225000d4fa43cdf78f1e8034d421be6de",
     "publication.json": "607f084c0ac6e22479b8f0d0009fedab1ba96921c6d21537fa5c47b3f8e2f8d3",
     "working.css": "8d4cc81366f62b6cbc7cc4ced70d20f9a416513803084ebb5231bfa5ee103550"
