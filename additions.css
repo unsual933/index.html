@@ -434,4 +434,6 @@ html{scrollbar-gutter:stable}
 
 .wow-source-status{padding:16px 0 20px;border-bottom:1px solid var(--surface-border);margin-bottom:20px}.wow-source-status p,.wow-source-status small{font-size:13px;color:var(--surface-muted);line-height:1.6}.wow-source-status p{margin:8px 0}.wow-farm-field{display:flex;flex-direction:column;gap:8px;margin:20px 0;font-size:13px}.wow-farm-field input{padding:11px 13px;background:var(--surface);color:var(--surface-ink);border:1px solid var(--surface-border);font:inherit}.wow-farm-field input:focus-visible{outline:2px solid var(--teal)}.wow-hub .farm-results{padding:30px;border-left:1px solid var(--surface-border)}.wow-hub .market-columns-heading{margin-top:24px}.wow-game-banner img{object-position:50% 45%}.wow-hub .game-title{font-size:38px}
 
+.wow-farm-catalogue{margin-top:32px}.wow-farm-catalogue>h2{margin-bottom:12px}.wow-farm-catalogue .chart-card{padding:26px}.wow-farm-catalogue h3{margin:8px 0 12px}.wow-farm-catalogue p{line-height:1.65;margin:10px 0}
+
 .prototype-bar{display:none!important}
